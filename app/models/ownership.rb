@@ -8,8 +8,4 @@ class Ownership < ActiveRecord::Base
   has_many :haves, class_name: "Have", foreign_key: "user_id", dependent: :destroy
   has_many :have_items , through: :haves, source: :item
   
-  # def type()
-  #   ownerships.find_or_create_by(type: ownership.type)
-  # end
-  
 end

@@ -18,12 +18,10 @@
         </div>
         <div class="action clearfix">
           <% if current_user.want?(item) %>
-              <%= link_to "" , 
-                ownership_path(current_user.wants.find_by(:item_id => item.id) , 
-                  item_id: item.id , type: "Want") ,
-                :class => "want-#{item.id} btn-want btn btn-danger btn-sm wanted",
-                :remote => true,
-                :method => :delete %>
+              <%= link_to "" , ownerships_path(asin: item.get('ASIN') , type: "Wanted") ,
+                              :class => "want-#{item.get('ASIN')} btn-want btn btn-danger btn-sm wanted",
+                              :remote => true,
+                              :method => :delete %>
           <% else %>
               <%= link_to "" , ownerships_path(asin: item.get('ASIN') , type: "Want") ,
                           :class => "want-#{item.get('ASIN')} btn-want btn btn-danger btn-sm want",
@@ -32,12 +30,10 @@
           <% end %>
           
           <% if current_user.have? item %>
-              <%= link_to "" , 
-                ownership_path( current_user.haves.find_by(:item_id => item.id) , 
-                  item_id: item.id , type: "Have") ,
-                :class => "have-#{item.id} btn-have btn btn-warning btn-sm haved",
-                :remote => true,
-                :method => :delete %> 
+              <%= link_to "" , ownerships_path(asin: item.get('ASIN') , type: "Haved") ,
+                              :class => "want-#{item.get('ASIN')} btn-want btn btn-danger btn-sm haved",
+                              :remote => true,
+                              :method => :delete %>
           <% else %>
               <%= link_to "" , ownerships_path(asin: item.get('ASIN') , type: "Have") ,
                           :class => "have-#{item.get('ASIN')} btn-have btn btn-warning btn-sm have",
