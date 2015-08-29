@@ -13,12 +13,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    params[:q]
-      response = Amazon::Ecs.item_search(params[:q] , 
-                                  :search_index => 'All' , 
-                                  :response_group => 'Medium' , 
-                                  :country => 'jp')
-      @amazon_items = response.items
+     @item = Item.find(params[:id])
+    # @haved = @item.have_users
+    # @wanted = @item.want_users
   end
 
   private

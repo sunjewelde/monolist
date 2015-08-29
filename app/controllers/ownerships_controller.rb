@@ -46,14 +46,13 @@ class OwnershipsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:item_id])
-
     # TODO 紐付けの解除。 
     # params[:type]の値ににHavedボタンが押された時にはの時は「Have」,
     # Wantedボタンがされた時には「Want」が設定されています。
     
-    if params[:type] == "Haved"
+    if params[:type] == "Have"
         current_user.unhave(@item)
-      elsif params[:type] == "Wanted"
+      elsif params[:type] == "Want"
         current_user.unwant(@item)
     end
       
