@@ -14,8 +14,8 @@ class ItemsController < ApplicationController
 
   def show
      @item = Item.find(params[:id])
-    # @haved = @item.have_users
-    # @wanted = @item.want_users
+     @haved = @item.have_users
+     @wanted = @item.want_users
   end
 
   private
@@ -23,3 +23,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 end
+
+
+# def following
+#     @title = "Following"
+#     @user = User.find(params[:id])
+#     @users = @user.followed_users.order(:name).page params[:page]
+#     render 'show_follow'
+#   end

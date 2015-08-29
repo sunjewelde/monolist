@@ -21,9 +21,6 @@ class User < ActiveRecord::Base
   has_many :haves, class_name: "Have", foreign_key: "user_id", dependent: :destroy
   has_many :have_items , through: :haves, source: :item
   
-  # has_many :want_users , through: :wants, source: :users
-  # has_many :have_users , through: :haves, source: :users
-
   # 他のユーザーをフォローする
   def follow(other_user)
     following_relationships.create(followed_id: other_user.id)
@@ -62,12 +59,5 @@ class User < ActiveRecord::Base
     want_items.include?(item)
   end
   
-  # def want_users(item)
-  #   want_users.include?(item)
-  # end
-  
-  # def have_users(item)
-  #   have_users.include?(item)
-  # end
   
 end

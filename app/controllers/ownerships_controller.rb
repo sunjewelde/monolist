@@ -28,7 +28,6 @@ class OwnershipsController < ApplicationController
       @item.save!
     end
     
-    
     # TODO ユーザにwant or haveを設定する
     # params[:type]の値ににHaveボタンが押された時にはの時は「Have」,
     # Wantボタンがされた時には「Want」が設定されています。
@@ -40,8 +39,6 @@ class OwnershipsController < ApplicationController
         current_user.want(@item)
      end
      
-
-
   end
 
   def destroy
