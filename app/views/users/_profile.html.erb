@@ -26,13 +26,13 @@
       <li>
         <div class="status-label">WANT</div>
         <div id="want_count" class="status-value">
-          <%= current_user.wants.count %>
+            <%= user.want_items.count %>
         </div>
       </li>
       <li>
         <div class="status-label">HAVE</div>
         <div id="have_count" class="status-value">
-          <%= current_user.haves.count %>
+        <%= user.have_items.count %>
         </div>
       </li>
     </ul>
