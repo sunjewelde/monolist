@@ -7,8 +7,13 @@
                     <% i=1 %>
                     <% @ranking.each do |ranking| %>
                          <ol>
+                             <% if ranking.small_image.present? %>
                              <div><%= i %> <%= link_to(image_tag(ranking.small_image, {alt: ranking.title}), ranking.detail_page_url, :target=>["_blank"] ) %></div>
                              <div><%= ranking.title%></div>
+                             <% else %>
+                             <div><%= i %> <%= image_tag("no-image.png" , {alt: ranking.title}) %></div>
+                             <div><%= ranking.title%></div>
+                             <% end %>
                          </ol>
                          <hr/>
                     <% i = i +1  %>
@@ -17,4 +22,3 @@
             </div>
         </div>
 </div>
-
