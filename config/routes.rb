@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   
-  get 'ranking/have’, to: ‘ranking#have'
-  get 'ranking/want’, to: ‘ranking#want'
+  
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
@@ -21,6 +20,15 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end  
+  
+  get 'ranking/have' 
+  get 'ranking/want'
+      
+  # resources :ranking do
+  #   member do
+      
+  #   end
+  # end  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
